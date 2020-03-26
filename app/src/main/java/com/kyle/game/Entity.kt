@@ -3,12 +3,20 @@ package com.kyle.game
 import android.graphics.Canvas
 import android.graphics.Matrix
 import mikera.vectorz.Vector2
+import java.lang.Math.*
 import kotlin.math.acos
 
 abstract class Entity {
     var location = Vector2(100.0, 100.0); // Center location
-    var rotation: Float = 0.0f;
-    protected var matrix = Matrix();
+    var rotation: Float = 0.0f
+        get() = field
+        set(rot: Float) {
+            field = rot;
+            rotationVec = Vector2(sin(toRadians(rot.toDouble())), -cos(toRadians(rot.toDouble())));
+        }
+    var rotationVec = Vector2(0.0, 0.0);
+    var matrix = Matrix();
+
 
     /** x and y getters / setters **/
     var x: Double

@@ -13,10 +13,9 @@ import kotlin.math.acos
 
 const val PLAYER_SCALE: Float = 3.2f; // Image scaling for player
 const val CIRCLE_SIZE = 300;
-class Player(res: Resources): ImageEntity(res, R.drawable.player, PLAYER_SCALE) { // Resources are the actual resources while R only gets the id
+class Player(res: Resources): Actor(res, R.drawable.player, PLAYER_SCALE, 7.0, 100.0) { // Resources are the actual resources while R only gets the id
 
     private var circle = PlayerCircle(res, CIRCLE_SIZE);
-    private var speed = 7; // Base speed
     private var weapon: Weapon = Pistol(res, PLAYER_SCALE.toFloat());
 
     init {

@@ -2,21 +2,18 @@ package com.kyle.game
 
 import android.content.res.Resources
 import android.graphics.*
-import android.renderscript.Matrix4f
 import android.util.Log
-import mikera.matrixx.Matrix22
-import mikera.matrixx.Matrix33
-import mikera.matrixx.Matrixx
+import androidx.constraintlayout.solver.widgets.Rectangle
 import mikera.vectorz.Vector2
-import kotlin.math.acos
 
 abstract class ImageEntity(res: Resources, resourceID: Int, width: Int, height: Int): Entity() {
     protected val res = res;
 
-    lateinit var image: Bitmap;
+    var image: Bitmap;
     protected val paint = Paint();
     protected var scale = 1.0f
-    var offset: Vector2 = Vector2(0.0, 0.0);
+    var offset = Vector2(0.0, 0.0);
+    var bounds = Polygon();
 
     constructor(res: Resources, resourceID: Int, size: Int) : this(res, resourceID, size, size);
     constructor(res: Resources, resourceID: Int, scale: Float) : this(res, resourceID, scale.toInt(), scale.toInt()) {
@@ -36,16 +33,28 @@ abstract class ImageEntity(res: Resources, resourceID: Int, width: Int, height: 
 
     override fun draw(canvas: Canvas) {
         canvas.drawBitmap(image, matrix, paint);
+
+//        drawBounds(canvas)
+    }
+    fun drawBounds(canvas: Canvas) {
+        val newPaint = Paint();
+        newPaint.color = (Color.RED)
+        bounds.points.forEach {
+            canvas.drawCircle(it.x.toFloat(), it.y.toFloat(), 6f,  newPaint)
+        }
     }
 
     override fun update(gameData: GameData) { // TODO: Remove this implementation in unneeded entities for optimisation
         val midWidth = image.width / 2.0f;
         val midHeight = image.height / 2.0f
+
         matrix.reset();
         matrix.preTranslate(offset.x.toFloat(), -offset.y.toFloat());
         matrix.postRotate(rotation, midWidth, midHeight);
         // Minus half width and half height to get actual screen coordinates
         matrix.postTranslate(x.toFloat() - midWidth, y.toFloat() - midHeight);
+
+        updateBounds()
     }
 
 
@@ -57,19 +66,30 @@ abstract class ImageEntity(res: Resources, resourceID: Int, width: Int, height: 
     }
 
     fun isTouching(other: ImageEntity): Boolean {
-        return touchesImageEntity(this, other);
+//        return touchesImageEntity(this, other);
+        return bounds.isIntersecting(other.bounds);
     }
 
-    fun getLocationAfterTransform() : Vector2 {
-        val floats = FloatArray(9);
-        matrix.getValues(floats);
-        var doubles = DoubleArray(9);
-        for((index, float) in floats.withIndex()) doubles[index] = float.toDouble();
-        var mat = Matrix22(doubles[0], doubles[1], doubles[2], doubles[3]);
-        val ret = mat.multiplyCopy(location);
-//        Log.d("dwadwa", "${Vector2(ret.get(0, 0), ret.get(1, 0))}")
-//        Log.d("dwadwa", "${Vector2(ret.get(0, 0), ret.get(0, 1))}")
-        return Vector2(ret.get(0, 0), ret.get(0, 1));
+    fun locationAfterOffset() : Vector2 {
+        return locationAfterOffset((image.width / 2.0f).toDouble(), (image.height / 2.0f).toDouble())
+    }
+
+    fun locationAfterOffset(x: Double, y: Double) : Vector2 {
+        return locationAfterOffset(Vector2(x.toDouble(), y.toDouble()))
+    }
+
+    fun locationAfterOffset(point: Vector2) : Vector2 {
+        val mappedPoints = floatArrayOf(point.x.toFloat(), point.y.toFloat());
+        matrix.mapPoints(mappedPoints);
+        return Vector2(mappedPoints[0].toDouble(), mappedPoints[1].toDouble());
+    }
+
+    fun updateBounds() {
+        bounds = Polygon();
+        bounds.points.add(locationAfterOffset(0.0, 0.0)) // Top Left
+        bounds.points.add(locationAfterOffset(image.width.toDouble(), 0.0)) // Top Right
+        bounds.points.add(locationAfterOffset(0.0, image.height.toDouble())) // Bottom Left
+        bounds.points.add(locationAfterOffset(image.width.toDouble(), image.height.toDouble())) // Bottom Right
     }
 
 }

@@ -49,7 +49,7 @@ class GameView(context: Context, screenSize: Point): SurfaceView(context), Runna
 
         gameData.background = Background(resources, R.drawable.background, screenSize.x, screenSize.y);
         entities.put(Player(resources));
-        entities.put(Enemy(resources, R.drawable.zombie_norm, 3.2f));
+        entities.put(NormalZombie(resources, 3.2f));
     }
 
     fun initSoundPool() {
@@ -77,6 +77,7 @@ class GameView(context: Context, screenSize: Point): SurfaceView(context), Runna
     override fun run() {
         while(isPlaying) {
             update();
+            gameData.removeQueuedEntities();
             draw();
         }
     }

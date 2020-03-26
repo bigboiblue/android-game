@@ -13,6 +13,7 @@ abstract class Weapon(res: Resources, resourceID: Int, scale: Float):
     var projectiles = mutableListOf<Projectile>()
     var lastShot = 0L;
     abstract var fireRate: Int; // Millis til next bullet
+    abstract var damage: Double;
 
     override fun update(gameData: GameData) {
         super.update(gameData)
@@ -27,13 +28,26 @@ abstract class Weapon(res: Resources, resourceID: Int, scale: Float):
         }
 
         while(count < projectiles.size){
-            if(projectiles.get(count).shouldRemove()){
+            projectiles[count].update(gameData);
+            updateHitEntities(gameData , projectiles[count]);
+
+            if(projectiles[count].shouldRemove()){
                 projectiles.removeAt(count);
                 continue;
             }
-            projectiles.get(count).update(gameData);
-
             count++;
+        }
+    }
+
+    fun updateHitEntities(gameData: GameData, projectile: Projectile) {
+        projectile.hitEntities.forEach {
+            if(it is Enemy) {
+                it.health -= damage;
+                Log.d("____", "ZOMBIE Health: ${it.health}")
+                if(it.shouldRemove()){
+                    gameData.addToRemoveQueue(it);
+                }
+            }
         }
     }
 

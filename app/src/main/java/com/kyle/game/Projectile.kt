@@ -9,6 +9,8 @@ import java.lang.System.currentTimeMillis
 abstract class Projectile(res: Resources, resourceID: Int, scale: Float, location: Vector2, rotation: Float) :
         ImageEntity(res, resourceID, scale) {
 
+    var hitEntities = mutableListOf<ImageEntity>();
+
     init {
         this.location = location
         this.offset = Vector2(0.0, (image.height / 2).toDouble());
@@ -22,15 +24,14 @@ abstract class Projectile(res: Resources, resourceID: Int, scale: Float, locatio
 
     inline fun collisionUpdates(gameData: GameData) {
         gameData.entities.forEach {
-            if(it.value.size > 0 && it.value.get(0) is Enemy) {
-                it.value.forEach {
-                    if(isTouching(it as ImageEntity)){
-                        Log.d("__dwadwa__", "SHOOOOOT")
-                    }
+            it.value.forEach {
+                if(isTouching(it as ImageEntity)){
+                    hitEntities.add(it);
                 }
             }
         }
     }
+
 
     abstract val LIFETIME: Long;
     protected val creationTime = currentTimeMillis();

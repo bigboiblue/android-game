@@ -1,14 +1,17 @@
 package com.kyle.game
 
 import android.graphics.Bitmap
-import android.media.Image
+import android.graphics.Point
+import mikera.vectorz.Vector2
+
 
 fun touchesImageEntity(e1: ImageEntity, e2: ImageEntity): Boolean {
-    val b1 = e1.image;
-    val b2 = e2.image;
+    val b1 = Bitmap.createBitmap(e1.image, 0, 0, e1.image.width, e1.image.height, e1.matrix, false);
+    val b2 = Bitmap.createBitmap(e2.image, 0, 0, e2.image.width, e2.image.height, e2.matrix, false);
 
     val xshift: Int = (e2.x - e1.x).toInt()
     val yshift: Int = (e2.y - e1.y).toInt()
+
     //Test if the Sprites overlap at all
     if (xshift > 0 && xshift > b1.width|| xshift < 0 && -xshift > b2.width) {
         return false
@@ -56,3 +59,5 @@ fun touchesImageEntity(e1: ImageEntity, e2: ImageEntity): Boolean {
     }
     return false
 }
+
+
