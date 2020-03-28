@@ -3,7 +3,7 @@ services:
   node_server:
     build:
       context: ./node_backend
-    entrypoint: /app/docker/node_backend/container_startup.sh
+    entrypoint: zsh -c "yarn start && echo Backend running..."
     volumes:
       - ../node_backend:/app
       - /app/docker
