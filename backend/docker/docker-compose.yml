@@ -8,7 +8,9 @@ services:
       - ../node_backend:/app
       - /app/docker
       - ./node_backend/container_startup.sh:/app/docker/node_backend/container_startup.sh
-      - /etc/letsencrypt/live/www.bitdev.bar:/certs
+      - /etc/letsencrypt/archive/www.bitdev.bar/privkey1.pem:/certs/privkey.pem
+      - /etc/letsencrypt/archive/www.bitdev.bar/cert1.pem:/certs/cert.pem
+      - /etc/letsencrypt/archive/www.bitdev.bar/chain1.pem:/certs/chain.pem
     links:
       - "mongodb"
     ports:
