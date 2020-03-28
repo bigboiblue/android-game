@@ -6,7 +6,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Resources
 import android.media.MediaPlayer
+import android.util.Log
 import android.view.MotionEvent
+import com.beust.klaxon.Klaxon
+import com.github.kittinunf.fuel.httpPost
+import com.github.kittinunf.result.Result
 import com.kyle.last_man_standing.R
 import com.kyle.last_man_standing.actor.*
 import com.kyle.last_man_standing.core.Entity
@@ -27,6 +31,7 @@ class GameData(context: GameActivity) {
     lateinit var lastTouch: MotionEvent;
     var removeQueue = mutableListOf<Pair<String, Entity>>(); // Key Index pair
     val context = context;
+    val url = context.intent.getStringExtra("url");
 
 
     var roundSound = MediaPlayer.create(context, R.raw.new_round);
@@ -151,12 +156,41 @@ class GameData(context: GameActivity) {
             if(currentRound > mostRounds || (currentRound == mostRounds && this.points > mostPoints)){
                 saveHighScore(name);
             }
-//            saveOnlineScore(name, currentRound, points);
+            saveOnlineScore(name);
             val intent = Intent(context, MainActivity::class.java);
             context.startActivity(intent);
         }
         context.addEditText();
 
+    }
+
+    fun saveOnlineScore(name: String) {
+        val score = Score(name, currentRound, points);
+        val bodyJson = """
+            [{
+                "name": "$name",
+                "rounds": $currentRound,
+                "points": $points
+            }]
+        """.trimIndent()
+
+        Log.d("URLLLL", url.toString());
+
+
+        val httpAsync = "$url/add".httpPost().body(bodyJson).responseString { request, response, result ->
+            when (result) {
+                is Result.Failure -> {
+                    val ex = result.getException()
+                    Log.d("__ERROR__", ex.toString());
+                }
+                is Result.Success -> {
+                    val data = result.get()
+                    Log.d("__RESPONSE__", data.toString());
+                }
+            }
+        }
+
+        httpAsync.join();
     }
 
     fun getHighScore(): Pair<Long, Long> {
