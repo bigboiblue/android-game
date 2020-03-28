@@ -18,14 +18,13 @@ import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
-    val ip = "167.86.81.124";
+    val ip = "bitdev.bar";
     val port = "28191"
-    val url = "http://$ip:$port/api/v1/scores"
+    val url = "https://$ip:$port/api/v1/scores"
     var response = "";
 
     override fun onCreate(savedInstanceState: Bundle?) {
         doRequest();
-        NetworkSecurityPolicy.getInstance().isCleartextTrafficPermitted();
 
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_main);
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val prefs: SharedPreferences = this.getSharedPreferences("high_score", Context.MODE_PRIVATE)
         val mostRounds = prefs.getLong("most_rounds", 0L)
         val mostPoints = prefs.getLong("most_points", 0L)
-pwd
+
         mostRoundsText.text = "Most Rounds: $mostRounds";
         mostPointsText.text = "Most Points: $mostPoints";
 
