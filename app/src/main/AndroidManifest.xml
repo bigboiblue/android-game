@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.kyle.game">
+    package="com.kyle.last_man_standing">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="MainActivity"
+        <activity android:name="com.kyle.last_man_standing.core.MainActivity"
             android:theme="@style/AppTheme.noActionBar"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity"
@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="GameActivity"
+        <activity android:name="com.kyle.last_man_standing.core.GameActivity"
             android:theme="@style/AppTheme.noActionBar"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity"
