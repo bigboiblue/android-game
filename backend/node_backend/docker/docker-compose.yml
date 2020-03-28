@@ -1,7 +1,6 @@
 version: "3"
 # Hitch
 services:
-
   node_server:
     build:
       context: ./node_server
@@ -10,6 +9,7 @@ services:
       - ../:/app
       - /app/docker
       - ./node_server/container_startup.sh:/app/docker/node_server/container_startup.sh
+      - /etc/letsencrypt/live/www.bitdev.bar:/certs
     links:
       - "mongodb"
     ports:
@@ -17,7 +17,7 @@ services:
       - "25585:25585"
     stdin_open: true
     tty: true
-  
+
   mongodb:
     build:
       context: ./mongodb

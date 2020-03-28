@@ -3,9 +3,9 @@ import https from "https";
 import app from "../app";
 
 
-const privateKey = fs.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/privkey.pem", "utf8");
-const certificate = fs.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/cert.pem", "utf8");
-const ca = fs.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/chain.pem", "utf8");
+const privateKey = fs.readFileSync("/certs/privkey.pem", "utf8");
+const certificate = fs.readFileSync("/certs/cert.pem", "utf8");
+const ca = fs.readFileSync("/certs/chain.pem", "utf8");
 
 const credentials = {
     key: privateKey,

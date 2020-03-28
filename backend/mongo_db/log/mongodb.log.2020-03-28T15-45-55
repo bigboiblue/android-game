@@ -1,0 +1,48 @@
+2020-03-28T13:21:05.152+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-03-28T13:21:05.165+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=9 port=27017 dbpath=/data/db 64-bit host=18dd445d0ec5
+2020-03-28T13:21:05.166+0000 I  CONTROL  [initandlisten] db version v4.2.2
+2020-03-28T13:21:05.167+0000 I  CONTROL  [initandlisten] git version: a0bbbff6ada159e19298d37946ac8dc4b497eadf
+2020-03-28T13:21:05.168+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2020-03-28T13:21:05.169+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-03-28T13:21:05.172+0000 I  CONTROL  [initandlisten] modules: none
+2020-03-28T13:21:05.173+0000 I  CONTROL  [initandlisten] build environment:
+2020-03-28T13:21:05.175+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2020-03-28T13:21:05.176+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-03-28T13:21:05.176+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-03-28T13:21:05.177+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2020-03-28T13:21:05.187+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2020-03-28T13:21:05.196+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-03-28T13:21:05.203+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2020-03-28T13:21:05.208+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=482M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-03-28T13:21:19.032+0000 I  STORAGE  [initandlisten] WiredTiger message [1585401679:32445][9:0x7fd5886abd40], txn-recover: Recovering log 3 through 4
+2020-03-28T13:21:19.545+0000 I  STORAGE  [initandlisten] WiredTiger message [1585401679:545212][9:0x7fd5886abd40], txn-recover: Recovering log 4 through 4
+2020-03-28T13:21:20.025+0000 I  STORAGE  [initandlisten] WiredTiger message [1585401680:25366][9:0x7fd5886abd40], txn-recover: Main recovery loop: starting at 3/4608 to 4/256
+2020-03-28T13:21:20.062+0000 I  STORAGE  [initandlisten] WiredTiger message [1585401680:62260][9:0x7fd5886abd40], txn-recover: Recovering log 3 through 4
+2020-03-28T13:21:20.753+0000 I  STORAGE  [initandlisten] WiredTiger message [1585401680:753015][9:0x7fd5886abd40], txn-recover: Recovering log 4 through 4
+2020-03-28T13:21:20.806+0000 I  STORAGE  [initandlisten] WiredTiger message [1585401680:806398][9:0x7fd5886abd40], txn-recover: Set global recovery timestamp: (0,0)
+2020-03-28T13:21:20.832+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-03-28T13:21:20.856+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-03-28T13:21:20.859+0000 I  CONTROL  [initandlisten] 
+2020-03-28T13:21:20.859+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-03-28T13:21:20.860+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-03-28T13:21:20.860+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2020-03-28T13:21:20.861+0000 I  CONTROL  [initandlisten] 
+2020-03-28T13:21:20.872+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-03-28T13:21:20.882+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-03-28T13:21:20.882+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-03-28T13:21:20.883+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-03-28T13:21:20.894+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-03-28T13:21:20.896+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-03-28T13:21:20.898+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-03-28T13:21:20.898+0000 I  NETWORK  [initandlisten] Listening on /tmp/mongodb-27017.sock
+2020-03-28T13:21:20.899+0000 I  NETWORK  [initandlisten] Listening on 0.0.0.0
+2020-03-28T13:21:20.899+0000 I  NETWORK  [initandlisten] waiting for connections on port 27017
+2020-03-28T13:21:20.899+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-03-28T13:21:21.067+0000 I  FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2020-03-28T13:21:21.380+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-03-28T13:22:31.444+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:48298 #1 (1 connection now open)
+2020-03-28T13:22:31.499+0000 I  NETWORK  [conn1] received client metadata from 172.18.0.3:48298 conn1: { driver: { name: "nodejs|Mongoose", version: "3.5.5" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.5.5|5.9.6" }
+2020-03-28T13:22:53.827+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:48308 #2 (2 connections now open)
+2020-03-28T13:22:53.833+0000 I  NETWORK  [conn2] received client metadata from 172.18.0.3:48308 conn2: { driver: { name: "nodejs|Mongoose", version: "3.5.5" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "'Node.js v10.16.3, LE (unified)", version: "3.5.5|5.9.6" }
+2020-03-28T13:22:53.840+0000 I  SHARDING [conn2] Marking collection last_man_standing.scores as collection version: <unsharded>
+2020-03-28T13:28:53.427+0000 I  NETWORK  [conn2] end connection 172.18.0.3:48308 (1 connection now open)
