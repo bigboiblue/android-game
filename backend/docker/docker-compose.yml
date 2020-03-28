@@ -14,7 +14,7 @@ services:
     links:
       - "mongodb"
     ports:
-      - "28191:443"
+      - "443:443"
       - "25585:25585"
     stdin_open: true
     tty: true

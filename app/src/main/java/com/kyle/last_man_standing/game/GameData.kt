@@ -165,7 +165,7 @@ class GameData(context: GameActivity) {
     }
 
     fun saveOnlineScore(name: String) {
-        val score = Score(name, currentRound, points);
+//        val score = Score(name, currentRound, points);
         val bodyJson = """
             [{
                 "name": "$name",
