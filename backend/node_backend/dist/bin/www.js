@@ -1,14 +1,31 @@
 "use strict";
 
+var _fs = _interopRequireDefault(require("fs"));
+
+var _https = _interopRequireDefault(require("https"));
+
 var _app = _interopRequireDefault(require("../app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//TODO: SERVER Do 404 and error handling
-const PORT = parseInt(process.env.PORT) || 8081;
+const privateKey = _fs.default.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/privkey.pem", "utf8");
+
+const certificate = _fs.default.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/cert.pem", "utf8");
+
+const ca = _fs.default.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/chain.pem", "utf8");
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca
+};
+const PORT = parseInt(process.env.PORT) || 28191;
 process.env.PORT = PORT.toString();
 
-_app.default.listen(PORT, () => console.log(`Server running on port: ${PORT}`)); //// Server error handling here ////
-//// e.g.  app.on('error', onError); ////
+const httpsServer = _https.default.createServer(credentials, _app.default);
+
+httpsServer.listen(443, () => {
+  console.log(`HTTPS Server running on port ${PORT}`);
+});
 
 //# sourceMappingURL=www.js.map
