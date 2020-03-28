@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../src/routes/api/authors.ts"],"names":[],"mappings":";;;;;;;AAAA;;;;AACA,MAAM,MAAM,GAAG,iBAAQ,MAAR,EAAf;;eAEe,M","file":"authors.js","sourcesContent":["import express from \"express\";\nconst router = express.Router();\n\nexport default router;\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/routes/index.ts"],"names":[],"mappings":";;;;;;;AAAA;;AACA;;;;AACA,MAAM,MAAM,GAAG,sBAAf;AAEA,MAAM,CAAC,GAAP,CAAW,MAAX,EAAmB,YAAnB;eAEe,M","file":"index.js","sourcesContent":["import { Router } from \"express\";\nimport apiRouter from \"./api\";\nconst router = Router();\n\nrouter.use(\"/api\", apiRouter);\n\nexport default router;\n"]}

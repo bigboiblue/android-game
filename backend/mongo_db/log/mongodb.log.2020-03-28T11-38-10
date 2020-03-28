@@ -1,0 +1,48 @@
+2020-03-28T11:33:49.009+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-03-28T11:33:49.067+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=9 port=27017 dbpath=/data/db 64-bit host=d277dfc267fc
+2020-03-28T11:33:49.067+0000 I  CONTROL  [initandlisten] db version v4.2.2
+2020-03-28T11:33:49.068+0000 I  CONTROL  [initandlisten] git version: a0bbbff6ada159e19298d37946ac8dc4b497eadf
+2020-03-28T11:33:49.068+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2020-03-28T11:33:49.069+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-03-28T11:33:49.069+0000 I  CONTROL  [initandlisten] modules: none
+2020-03-28T11:33:49.071+0000 I  CONTROL  [initandlisten] build environment:
+2020-03-28T11:33:49.072+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2020-03-28T11:33:49.072+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-03-28T11:33:49.073+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-03-28T11:33:49.073+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2020-03-28T11:33:49.087+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=482M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-03-28T11:34:00.649+0000 I  STORAGE  [initandlisten] WiredTiger message [1585395240:649919][9:0x7fa770f05d40], txn-recover: Set global recovery timestamp: (0,0)
+2020-03-28T11:34:00.662+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-03-28T11:34:00.680+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-03-28T11:34:00.689+0000 I  CONTROL  [initandlisten] 
+2020-03-28T11:34:00.689+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-03-28T11:34:00.689+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-03-28T11:34:00.690+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2020-03-28T11:34:00.690+0000 I  CONTROL  [initandlisten] 
+2020-03-28T11:34:00.701+0000 I  STORAGE  [initandlisten] createCollection: admin.system.version with provided UUID: 1a4c3cc7-5f6c-4b25-8df2-2a029f02635e and options: { uuid: UUID("1a4c3cc7-5f6c-4b25-8df2-2a029f02635e") }
+2020-03-28T11:34:00.717+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns admin.system.version
+2020-03-28T11:34:00.719+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-03-28T11:34:00.720+0000 I  COMMAND  [initandlisten] setting featureCompatibilityVersion to 4.2
+2020-03-28T11:34:00.724+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-03-28T11:34:00.726+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-03-28T11:34:00.728+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-03-28T11:34:00.730+0000 I  STORAGE  [initandlisten] createCollection: local.startup_log with generated UUID: 667ea27f-d677-4fb7-a0a5-678d9b8892a4 and options: { capped: true, size: 10485760 }
+2020-03-28T11:34:00.746+0000 I  INDEX    [initandlisten] index build: done building index _id_ on ns local.startup_log
+2020-03-28T11:34:00.746+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-03-28T11:34:00.750+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-03-28T11:34:00.757+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-03-28T11:34:00.757+0000 I  NETWORK  [initandlisten] Listening on /tmp/mongodb-27017.sock
+2020-03-28T11:34:00.758+0000 I  NETWORK  [initandlisten] Listening on 0.0.0.0
+2020-03-28T11:34:00.759+0000 I  NETWORK  [initandlisten] waiting for connections on port 27017
+2020-03-28T11:34:00.773+0000 I  CONTROL  [LogicalSessionCacheReap] Sessions collection is not set up; waiting until next sessions reap interval: config.system.sessions does not exist
+2020-03-28T11:34:00.774+0000 I  STORAGE  [LogicalSessionCacheRefresh] createCollection: config.system.sessions with provided UUID: d91bac52-6461-47f7-b5fc-ef3266ac323a and options: { uuid: UUID("d91bac52-6461-47f7-b5fc-ef3266ac323a") }
+2020-03-28T11:34:00.799+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index _id_ on ns config.system.sessions
+2020-03-28T11:34:00.818+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: starting on config.system.sessions properties: { v: 2, key: { lastUse: 1 }, name: "lsidTTLIndex", ns: "config.system.sessions", expireAfterSeconds: 1800 } using method: Hybrid
+2020-03-28T11:34:00.819+0000 I  INDEX    [LogicalSessionCacheRefresh] build may temporarily use up to 500 megabytes of RAM
+2020-03-28T11:34:00.819+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: collection scan done. scanned 0 total records in 0 seconds
+2020-03-28T11:34:00.825+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: inserted 0 keys from external sorter into index in 0 seconds
+2020-03-28T11:34:00.827+0000 I  INDEX    [LogicalSessionCacheRefresh] index build: done building index lsidTTLIndex on ns config.system.sessions
+2020-03-28T11:34:01.011+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-03-28T11:35:22.931+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:47398 #1 (1 connection now open)
+2020-03-28T11:35:22.951+0000 I  NETWORK  [conn1] received client metadata from 172.18.0.3:47398 conn1: { driver: { name: "nodejs-core", version: "3.3.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "Node.js v10.16.3, LE" }
+2020-03-28T11:37:11.989+0000 I  NETWORK  [conn1] end connection 172.18.0.3:47398 (0 connections now open)

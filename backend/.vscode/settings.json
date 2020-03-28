@@ -1,0 +1,6 @@
+{
+    "eslint.enable": true,
+    "eslint.workingDirectories": [
+        "./node_backend"
+    ]
+}

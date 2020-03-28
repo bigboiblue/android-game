@@ -1,0 +1,30 @@
+version: "3"
+services:
+  node_server:
+    build:
+      context: ./node_backend
+    entrypoint: /app/docker/node_backend/container_startup.sh
+    volumes:
+      - ../node_backend:/app
+      - /app/docker
+      - ./node_backend/container_startup.sh:/app/docker/node_backend/container_startup.sh
+    links:
+      - "mongodb"
+    ports:
+      - "28191:28191"
+      - "25585:25585"
+    stdin_open: true
+    tty: true
+
+  mongodb:
+    build:
+      context: ./mongodb
+    entrypoint: /app/docker/mongodb/container_startup.sh
+    volumes:
+      - ./mongodb/container_startup.sh:/app/docker/mongodb/container_startup.sh
+      - ../mongo_db:/data/db/
+      - ../mongo_db/log/:/var/log/
+    ports:
+      - "27017"
+    stdin_open: true
+    tty: true

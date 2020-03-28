@@ -1,0 +1,69 @@
+2020-03-28T11:38:11.005+0000 I  CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+2020-03-28T11:38:11.011+0000 I  CONTROL  [initandlisten] MongoDB starting : pid=8 port=27017 dbpath=/data/db 64-bit host=d277dfc267fc
+2020-03-28T11:38:11.015+0000 I  CONTROL  [initandlisten] db version v4.2.2
+2020-03-28T11:38:11.015+0000 I  CONTROL  [initandlisten] git version: a0bbbff6ada159e19298d37946ac8dc4b497eadf
+2020-03-28T11:38:11.016+0000 I  CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.1.1d  10 Sep 2019
+2020-03-28T11:38:11.016+0000 I  CONTROL  [initandlisten] allocator: tcmalloc
+2020-03-28T11:38:11.016+0000 I  CONTROL  [initandlisten] modules: none
+2020-03-28T11:38:11.016+0000 I  CONTROL  [initandlisten] build environment:
+2020-03-28T11:38:11.017+0000 I  CONTROL  [initandlisten]     distmod: debian10
+2020-03-28T11:38:11.017+0000 I  CONTROL  [initandlisten]     distarch: x86_64
+2020-03-28T11:38:11.017+0000 I  CONTROL  [initandlisten]     target_arch: x86_64
+2020-03-28T11:38:11.018+0000 I  CONTROL  [initandlisten] options: { net: { bindIp: "*" }, processManagement: { fork: true }, systemLog: { destination: "file", path: "/var/log/mongodb.log" } }
+2020-03-28T11:38:11.021+0000 W  STORAGE  [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2020-03-28T11:38:11.029+0000 I  STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+2020-03-28T11:38:11.033+0000 W  STORAGE  [initandlisten] Recovering data from the last clean checkpoint.
+2020-03-28T11:38:11.034+0000 I  STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=482M,cache_overflow=(file_max=0M),session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000,close_scan_interval=10,close_handle_minimum=250),statistics_log=(wait=0),verbose=[recovery_progress,checkpoint_progress],
+2020-03-28T11:38:22.982+0000 I  STORAGE  [initandlisten] WiredTiger message [1585395502:982578][8:0x7f1d47ec1d40], txn-recover: Recovering log 1 through 2
+2020-03-28T11:38:23.537+0000 I  STORAGE  [initandlisten] WiredTiger message [1585395503:537351][8:0x7f1d47ec1d40], txn-recover: Recovering log 2 through 2
+2020-03-28T11:38:24.050+0000 I  STORAGE  [initandlisten] WiredTiger message [1585395504:50791][8:0x7f1d47ec1d40], txn-recover: Main recovery loop: starting at 1/22656 to 2/256
+2020-03-28T11:38:24.082+0000 I  STORAGE  [initandlisten] WiredTiger message [1585395504:82879][8:0x7f1d47ec1d40], txn-recover: Recovering log 1 through 2
+2020-03-28T11:38:24.626+0000 I  STORAGE  [initandlisten] WiredTiger message [1585395504:626440][8:0x7f1d47ec1d40], txn-recover: Recovering log 2 through 2
+2020-03-28T11:38:24.673+0000 I  STORAGE  [initandlisten] WiredTiger message [1585395504:673219][8:0x7f1d47ec1d40], txn-recover: Set global recovery timestamp: (0,0)
+2020-03-28T11:38:24.713+0000 I  RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+2020-03-28T11:38:24.729+0000 I  STORAGE  [initandlisten] Timestamp monitor starting
+2020-03-28T11:38:24.732+0000 I  CONTROL  [initandlisten] 
+2020-03-28T11:38:24.732+0000 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2020-03-28T11:38:24.733+0000 I  CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2020-03-28T11:38:24.733+0000 I  CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2020-03-28T11:38:24.734+0000 I  CONTROL  [initandlisten] 
+2020-03-28T11:38:24.744+0000 I  SHARDING [initandlisten] Marking collection local.system.replset as collection version: <unsharded>
+2020-03-28T11:38:24.755+0000 I  STORAGE  [initandlisten] Flow Control is enabled on this deployment.
+2020-03-28T11:38:24.756+0000 I  SHARDING [initandlisten] Marking collection admin.system.roles as collection version: <unsharded>
+2020-03-28T11:38:24.757+0000 I  SHARDING [initandlisten] Marking collection admin.system.version as collection version: <unsharded>
+2020-03-28T11:38:24.766+0000 I  SHARDING [initandlisten] Marking collection local.startup_log as collection version: <unsharded>
+2020-03-28T11:38:24.767+0000 I  FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+2020-03-28T11:38:24.771+0000 I  NETWORK  [initandlisten] Listening on /tmp/mongodb-27017.sock
+2020-03-28T11:38:24.772+0000 I  NETWORK  [initandlisten] Listening on 0.0.0.0
+2020-03-28T11:38:24.772+0000 I  NETWORK  [initandlisten] waiting for connections on port 27017
+2020-03-28T11:38:24.772+0000 I  SHARDING [LogicalSessionCacheRefresh] Marking collection config.system.sessions as collection version: <unsharded>
+2020-03-28T11:38:24.776+0000 I  SHARDING [LogicalSessionCacheReap] Marking collection config.transactions as collection version: <unsharded>
+2020-03-28T11:38:25.038+0000 I  FTDC     [ftdc] Unclean full-time diagnostic data capture shutdown detected, found interim file, some metrics may have been lost. OK
+2020-03-28T11:38:25.218+0000 I  SHARDING [ftdc] Marking collection local.oplog.rs as collection version: <unsharded>
+2020-03-28T11:38:41.586+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:49214 #1 (1 connection now open)
+2020-03-28T11:38:41.588+0000 I  NETWORK  [conn1] received client metadata from 127.0.0.1:49214 conn1: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.2" }, os: { type: "Linux", name: "PRETTY_NAME="Debian GNU/Linux 10 (buster)"", architecture: "x86_64", version: "Kernel 4.19.76-linuxkit" } }
+2020-03-28T11:38:57.092+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:47406 #2 (2 connections now open)
+2020-03-28T11:38:57.119+0000 I  NETWORK  [conn2] received client metadata from 172.18.0.3:47406 conn2: { driver: { name: "nodejs-core", version: "3.3.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "Node.js v10.16.3, LE" }
+2020-03-28T11:39:18.674+0000 I  SHARDING [conn1] Marking collection last_man_standing.scores as collection version: <unsharded>
+2020-03-28T11:40:21.276+0000 I  STORAGE  [conn1] createCollection: last_man_standing.scores with generated UUID: 3c5ee39a-b5e0-49d3-9564-39520843d6ba and options: {}
+2020-03-28T11:40:21.291+0000 I  INDEX    [conn1] index build: done building index _id_ on ns last_man_standing.scores
+2020-03-28T11:43:19.105+0000 I  NETWORK  [conn2] end connection 172.18.0.3:47406 (1 connection now open)
+2020-03-28T11:43:23.668+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:47424 #3 (2 connections now open)
+2020-03-28T11:43:23.680+0000 I  NETWORK  [conn3] received client metadata from 172.18.0.3:47424 conn3: { driver: { name: "nodejs-core", version: "3.3.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "Node.js v10.16.3, LE" }
+2020-03-28T11:43:47.187+0000 I  NETWORK  [conn3] end connection 172.18.0.3:47424 (1 connection now open)
+2020-03-28T11:43:52.713+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:47462 #4 (2 connections now open)
+2020-03-28T11:43:52.727+0000 I  NETWORK  [conn4] received client metadata from 172.18.0.3:47462 conn4: { driver: { name: "nodejs-core", version: "3.3.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "Node.js v10.16.3, LE" }
+2020-03-28T12:36:13.886+0000 I  NETWORK  [conn4] end connection 172.18.0.3:47462 (1 connection now open)
+2020-03-28T12:36:20.934+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:47482 #5 (2 connections now open)
+2020-03-28T12:36:20.951+0000 I  NETWORK  [conn5] received client metadata from 172.18.0.3:47482 conn5: { driver: { name: "nodejs-core", version: "3.3.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "Node.js v10.16.3, LE" }
+2020-03-28T12:38:08.822+0000 I  NETWORK  [conn5] end connection 172.18.0.3:47482 (1 connection now open)
+2020-03-28T12:38:28.148+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:47562 #6 (2 connections now open)
+2020-03-28T12:38:28.166+0000 I  NETWORK  [conn6] received client metadata from 172.18.0.3:47562 conn6: { driver: { name: "nodejs-core", version: "3.3.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "Node.js v10.16.3, LE" }
+2020-03-28T12:39:20.335+0000 I  NETWORK  [conn6] end connection 172.18.0.3:47562 (1 connection now open)
+2020-03-28T12:39:26.159+0000 I  NETWORK  [listener] connection accepted from 172.18.0.3:47588 #7 (2 connections now open)
+2020-03-28T12:39:26.168+0000 I  NETWORK  [conn7] received client metadata from 172.18.0.3:47588 conn7: { driver: { name: "nodejs-core", version: "3.3.3" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.19.76-linuxkit" }, platform: "Node.js v10.16.3, LE" }
+2020-03-28T12:41:07.147+0000 I  NETWORK  [conn7] end connection 172.18.0.3:47588 (1 connection now open)
+2020-03-28T12:45:07.662+0000 I  NETWORK  [conn1] end connection 127.0.0.1:49214 (0 connections now open)
+2020-03-28T12:52:12.132+0000 I  NETWORK  [listener] connection accepted from 127.0.0.1:49694 #8 (1 connection now open)
+2020-03-28T12:52:12.134+0000 I  NETWORK  [conn8] received client metadata from 127.0.0.1:49694 conn8: { application: { name: "MongoDB Shell" }, driver: { name: "MongoDB Internal Client", version: "4.2.2" }, os: { type: "Linux", name: "PRETTY_NAME="Debian GNU/Linux 10 (buster)"", architecture: "x86_64", version: "Kernel 4.19.76-linuxkit" } }
+2020-03-28T13:14:22.885+0000 I  NETWORK  [conn8] end connection 127.0.0.1:49694 (0 connections now open)
