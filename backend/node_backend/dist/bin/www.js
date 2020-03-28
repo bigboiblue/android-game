@@ -8,11 +8,11 @@ var _app = _interopRequireDefault(require("../app"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const privateKey = _fs.default.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/privkey.pem", "utf8");
+const privateKey = _fs.default.readFileSync("/certs/privkey.pem", "utf8");
 
-const certificate = _fs.default.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/cert.pem", "utf8");
+const certificate = _fs.default.readFileSync("/certs/cert.pem", "utf8");
 
-const ca = _fs.default.readFileSync("/etc/letsencrypt/live/www.bitdev.bar/chain.pem", "utf8");
+const ca = _fs.default.readFileSync("/certs/chain.pem", "utf8");
 
 const credentials = {
   key: privateKey,

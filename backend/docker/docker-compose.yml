@@ -8,6 +8,7 @@ services:
       - ../node_backend:/app
       - /app/docker
       - ./node_backend/container_startup.sh:/app/docker/node_backend/container_startup.sh
+      - /etc/letsencrypt/live/www.bitdev.bar:/certs
     links:
       - "mongodb"
     ports:
