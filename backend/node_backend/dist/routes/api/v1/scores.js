@@ -40,11 +40,9 @@ router.delete("/:id", async (request, response) => {
   response.end("");
 });
 router.post("/add", async (request, response) => {
-  console.log(request.body);
-  console.log(typeof request.body);
   response.type("application/json");
-  await _scores.scores.insertMany(JSON.parse(request.body));
-  response.end(""); //
+  await _scores.scores.insertMany(request.body);
+  response.end("");
 });
 var _default = router;
 exports.default = _default;

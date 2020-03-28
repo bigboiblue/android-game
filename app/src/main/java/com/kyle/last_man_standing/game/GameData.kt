@@ -165,19 +165,12 @@ class GameData(context: GameActivity) {
     }
 
     fun saveOnlineScore(name: String) {
-//        val score = Score(name, currentRound, points);
-        val bodyJson = """
-            [{
-                "name": "$name",
-                "rounds": $currentRound,
-                "points": $points
-            }]
-        """.trimIndent()
+        val score = Score(name, currentRound, points);
+        val bodyJson = Klaxon().toJsonString(score);
 
-        Log.d("URLLLL", url.toString());
-
-
-        val httpAsync = "$url/add".httpPost().body(bodyJson).responseString { request, response, result ->
+        val request = "$url/add".httpPost().body(bodyJson)
+        request.headers["Content-Type"] = "application/json"
+        val httpAsync = request.responseString { request, response, result ->
             when (result) {
                 is Result.Failure -> {
                     val ex = result.getException()

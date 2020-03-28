@@ -31,12 +31,9 @@ router.delete("/:id", async (request, response) => {
 });
 
 router.post("/add", async (request, response) => {
-    console.log(request.body);
-    console.log(typeof request.body);
     response.type("application/json");
-    await scores.insertMany(JSON.parse(request.body));
+    await scores.insertMany(request.body);
     response.end("");
-    //
 });
 
 
